@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente Eterno: Uma Experiência Neuro-Sensorial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- SwiperJS for Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <style>
+        /* --- CORE STYLES & COLOR PSYCHOLOGY --- */
+        :root {
+            --bg-deep-blue: #0b0f19; /* Deeper blue for more contrast & mystery */
+            --primary-passion: #DC143C; /* Crimson: Deep Passion, Action, Love */
+            --primary-romance: #FF69B4; /* Hot Pink: Romance, Playfulness, Charm */
+            --accent-luxury: #9932CC; /* Dark Orchid: Luxury, Exclusivity, Magic */
+            --accent-elegance: #EAEAEA; /* Silver/Light Gray: Elegance, Modernity, Purity */
+            --text-primary: #f0f8ff; /* Alice Blue: Clarity, Softness */
+            --text-secondary: #a7d8fd; /* Light Blue: Calm, Trust */
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--bg-deep-blue);
+            color: var(--text-primary);
+        }
+        .font-cursive { font-family: 'Dancing Script', cursive; }
+        .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;}
+
+        /* --- NEURO-PERSUASIVE EFFECTS --- */
+
+        /* 1. Subtle Vignette Effect: Draws user focus to the center. */
+        #site-wrapper::before {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.5);
+            pointer-events: none; z-index: 50;
+        }
+
+        /* 2. Starfield Background: Creates a sense of depth and magic. */
+        #starfield {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent; z-index: -1;
+        }
+
+        /* 3. Neuro-Glow Effect: Multi-layered, dynamic aura on keywords. */
+        .neuro-glow {
+            position: relative; display: inline-block;
+            text-shadow: 0 0 5px var(--primary-romance), 0 0 10px var(--primary-romance);
+        }
+        .neuro-glow::before, .neuro-glow::after {
+            content: ''; position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%; pointer-events: none; z-index: -1;
+        }
+        /* Outer pulsating aura */
+        .neuro-glow::before {
+            width: 140%; height: 180%;
+            background: radial-gradient(circle, rgba(220, 20, 60, 0.2) 0%, rgba(220, 20, 60, 0) 70%);
+            animation: slow-pulse 4s ease-in-out infinite;
+        }
+        /* Inner shimmering particles */
+        .neuro-glow::after {
+             width: 120%; height: 160%;
+             box-shadow: 0 0 20px 5px rgba(255,105,180,0.3), inset 0 0 15px 3px rgba(255,255,255,0.4);
+             animation: shimmer 5s linear infinite;
+        }
+        @keyframes slow-pulse {
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* 4. Magnetic Micro-interactions: Makes buttons feel irresistible. */
+        .magnetic-btn {
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .magnetic-btn::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.2), transparent 40%);
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .magnetic-btn:hover::before { opacity: 1; }
+        .magnetic-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+        /* --- STANDARD ANIMATIONS & STYLES --- */
+        .reveal-section { opacity: 0; transform: translateY(40px); transition: opacity 1s ease-out, transform 1s ease-out; }
+        .reveal-section.visible { opacity: 1; transform: translateY(0); }
+        .letter-paper { background: #fffaf0 url('https://www.transparenttextures.com/patterns/paper-fibers.png'); border: 1px solid #dcdcdc; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); }
+        .heart { position: fixed; top: -10vh; animation: fall 12s linear infinite; color: var(--primary-passion); opacity: 0.7; text-shadow: 0 0 5px var(--primary-romance); }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        
+        #secret-letter-content { background: #fdf5e6 url('https://www.transparenttextures.com/patterns/old-wall.png'); box-shadow: 0 0 60px rgba(153, 50, 204, 0.5); animation: fadeInScale 0.7s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        
+        /* Final Climax Animations */
+        #final-message-screen { background: radial-gradient(circle, #2c1a2b, var(--bg-deep-blue)); }
+        .final-message-text span { display: inline-block; animation: letterDance 3s ease-in-out infinite; animation-delay: calc(0.1s * var(--i)); }
+        @keyframes letterDance { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-15px) rotate(-5deg); } 75% { transform: translateY(10px) rotate(5deg); } }
+        .final-message-text { font-size: clamp(3rem, 15vw, 10rem); animation: vibrantGlow 2.5s ease-in-out infinite alternate; }
+        @keyframes vibrantGlow { from { text-shadow: 0 0 10px #fff, 0 0 20px var(--accent-elegance), 0 0 35px var(--primary-romance), 0 0 50px var(--primary-passion); } to { text-shadow: 0 0 20px #fff, 0 0 35px var(--accent-elegance), 0 0 50px var(--primary-romance), 0 0 70px var(--primary-passion); } }
+        .final-promise { animation: fadeInPromise 2s 1s ease-out forwards; opacity: 0; }
+        @keyframes fadeInPromise { to { opacity: 1; } }
+        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="site-wrapper">
+        <canvas id="starfield"></canvas>
+
+        <!-- Initial Surprise Screen -->
+        <div id="surprise-cover" class="fixed inset-0 bg-[var(--bg-deep-blue)] z-50 flex flex-col items-center justify-center transition-opacity duration-1000">
+            <h1 class="font-cursive text-5xl md:text-7xl text-[var(--primary-romance)] mb-8 animate-pulse text-center px-4">Para a pessoa que mudou o meu mundo...</h1>
+            <button id="open-surprise-btn" class="bg-[var(--primary-passion)] text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg magnetic-btn">
+                Clique para revelar nossa história
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="opacity-0 transition-opacity duration-1000 relative">
+            <canvas id="confetti-canvas"></canvas>
+            <div id="hearts-rain-container" class="fixed top-0 left-0 w-full h-full pointer-events-none z-40"></div>
+            
+            <header class="text-center py-12 bg-gradient-to-b from-[#1e293b]/50 to-transparent">
+                <h1 class="font-cursive text-6xl md:text-8xl text-[var(--primary-romance)]">
+                    A <span class="neuro-glow">História</span> de Nós Dois
+                </h1>
+                <p class="text-xl md:text-2xl text-[var(--text-secondary)] mt-4">Porque o nosso <span class="neuro-glow">amor</span> merece ser eternizado.</p>
+            </header>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-16">
+                <!-- Personalized Letter -->
+                <section class="reveal-section flex justify-center">
+                    <div class="letter-paper p-8 md:p-12 rounded-lg max-w-3xl w-full">
+                        <h2 class="font-cursive text-5xl text-gray-800 mb-6 text-center">Meu Amor,</h2>
+                        <p class="font-serif-italic text-lg md:text-xl text-gray-700 leading-relaxed indent-8">
+                            Há momentos que redefinem nossa existência. O dia em que te encontrei foi o meu. Naquele instante, o mundo silenciou e uma nova canção começou a tocar, uma canção que só meu coração conseguia ouvir. Eu não sabia, mas ali começava a melhor parte da minha vida — uma jornada onde cada passo ao seu lado é mais vibrante, mais cheio de propósito e infinitamente mais feliz.
+                        </p>
+                        <p class="font-serif-italic text-lg md:text-xl text-gray-700 leading-relaxed mt-4 indent-8">
+                           Você me mostrou como o amor pode ser um refúgio e uma aventura, tudo ao mesmo tempo. Cada sorriso seu, cada conversa nossa, cada sonho que ousamos sonhar juntos, fortalece a certeza de que nascemos um para o outro. Este site é mais que um presente; é um reflexo do universo de sentimentos que você despertou em mim. É a nossa história, eternizada.
+                        </p>
+                        <p class="font-cursive text-3xl text-right mt-8 text-[var(--primary-passion)]">Com todo o meu coração,</p>
+                    </div>
+                </section>
+                <!-- Photo Carousel -->
+                <section class="reveal-section">
+                    <h2 class="font-cursive text-5xl md:text-6xl text-center mb-8 text-[var(--primary-romance)]">Nossos Momentos, Eternizados</h2>
+                    <div class="swiper-container mySwiper w-full max-w-2xl mx-auto rounded-lg shadow-2xl">
+                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-button-next text-[var(--primary-romance)]"></div>
+                        <div class="swiper-button-prev text-[var(--primary-romance)]"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+                <!-- Time Together Counter -->
+                <section class="reveal-section text-center">
+                    <h2 class="font-cursive text-5xl md:text-6xl text-center mb-8 text-[var(--text-secondary)]">O Tempo Para Quando Estou Com Você</h2>
+                    <div class="bg-gray-800/30 backdrop-blur-sm p-8 rounded-xl max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center shadow-lg border border-[var(--accent-luxury)]/30">
+                        <div><span id="days" class="text-4xl md:text-6xl font-bold text-[var(--primary-romance)]">0</span><p class="text-[var(--text-secondary)]">Dias</p></div>
+                        <div><span id="hours" class="text-4xl md:text-6xl font-bold text-[var(--primary-romance)]">0</span><p class="text-[var(--text-secondary)]">Horas</p></div>
+                        <div><span id="minutes" class="text-4xl md:text-6xl font-bold text-[var(--primary-romance)]">0</span><p class="text-[var(--text-secondary)]">Minutos</p></div>
+                        <div><span id="seconds" class="text-4xl md:text-6xl font-bold text-[var(--primary-romance)]">0</span><p class="text-[var(--text-secondary)]">Segundos</p></div>
+                    </div>
+                </section>
+                <!-- Special Songs & Audio -->
+                <section class="reveal-section">
+                    <h2 class="font-cursive text-5xl md:text-6xl text-center mb-12 text-[var(--primary-romance)]">A Trilha Sonora da Nossa História</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                        <div class="space-y-8">
+                           <iframe style="border-radius:12px; box-shadow: 0 8px 24px rgba(220, 20, 60, 0.2);" src="https://open.spotify.com/embed/track/7eYEQnY6Lzh3Y8jSOt3xEF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                           <iframe style="border-radius:12px; box-shadow: 0 8px 24px rgba(220, 20, 60, 0.2);" src="https://open.spotify.com/embed/track/3YQvZNmRc2y1hgdvustkce?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                           <iframe style="border-radius:12px; box-shadow: 0 8px 24px rgba(220, 20, 60, 0.2);" src="https://open.spotify.com/embed/track/5B4611SCn4puXahrf7rqkj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <h3 class="font-cursive text-4xl text-center mb-6 text-[var(--text-secondary)]">Uma Mensagem do Coração</h3>
+                            <div class="max-w-md mx-auto w-full bg-gray-800/30 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-[var(--primary-romance)]/30">
+                                <audio id="romantic-audio" src="https://raw.githubusercontent.com/igrm55/meu_audio/main/Rua%20e%20Mussurunga%20II%20St%20J%203.m4a"></audio>
+                                <div id="custom-audio-player" class="flex items-center gap-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Hearts with Messages -->
+                <section class="reveal-section">
+                    <h2 class="font-cursive text-5xl md:text-6xl text-center mb-4 text-[var(--primary-romance)]">12 Detalhes Seus que Eu Amo</h2>
+                    <p class="text-center text-[var(--text-secondary)] mb-10">Clique e sinta cada motivo.</p>
+                    <div id="heart-message-display" class="text-center mb-8 h-12 flex items-center justify-center">
+                         <p class="bg-white/10 text-[var(--accent-elegance)] font-semibold p-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">Selecione um coração para começar.</p>
+                    </div>
+                    <div id="hearts-container" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-8 max-w-3xl mx-auto"></div>
+                </section>
+                <!-- Memory Game -->
+                <section class="reveal-section">
+                     <h2 class="font-cursive text-5xl md:text-6xl text-center mb-8 text-[var(--text-secondary)]">Nosso Jogo Secreto</h2>
+                     <p class="text-center text-[var(--text-secondary)] mb-8">Encontre os pares que só nós entendemos.</p>
+                     <div class="max-w-xl mx-auto p-4 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-[var(--text-secondary)]/30">
+                        <div id="game-board" class="grid grid-cols-4 gap-4"></div>
+                        <div class="text-center mt-4 h-12"><p id="game-message" class="text-xl text-[var(--accent-elegance)] font-semibold"></p></div>
+                     </div>
+                </section>
+                <!-- Password-Protected Message -->
+                <section class="reveal-section">
+                    <h2 class="font-cursive text-5xl md:text-6xl text-center mb-8 text-[var(--primary-romance)]">A Chave do Meu Coração</h2>
+                    <div class="max-w-md mx-auto text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-[var(--accent-luxury)]/30">
+                        <p class="text-[var(--text-secondary)] mb-4">A senha é a palavra que nos define. Use-a para desvendar.</p>
+                        <div class="flex items-center justify-center gap-2">
+                            <input type="password" id="password-input" class="bg-gray-700 text-white rounded-lg p-3 text-center focus:outline-none focus:ring-2 focus:ring-[var(--primary-romance)] w-48">
+                            <button id="unlock-btn" class="bg-[var(--primary-romance)] hover:bg-[var(--primary-passion)] text-white font-bold p-3 rounded-lg magnetic-btn"></button>
+                        </div>
+                        <p id="password-error" class="text-red-400 mt-2 h-5"></p>
+                    </div>
+                </section>
+                <!-- Proposal -->
+                <section id="proposal" class="reveal-section">
+                    <div class="text-center p-8 md:p-12 rounded-2xl shadow-2xl" style="background-image: linear-gradient(to top right, var(--primary-passion), var(--accent-luxury));">
+                        <h2 class="font-cursive text-5xl md:text-7xl text-white mb-4">O Começo do Nosso "Para Sempre"</h2>
+                        <p class="text-white text-xl mb-8">E agora, a pergunta que ecoa no meu coração...</p>
+                        <h3 class="font-bold text-3xl md:text-5xl text-white drop-shadow-lg mb-10">Você aceita continuar essa história de amor comigo?</h3>
+                        <div class="flex justify-center items-center gap-8">
+                            <button class="proposal-btn bg-white text-[var(--primary-passion)] font-bold text-2xl py-4 px-10 rounded-full shadow-lg magnetic-btn">Sim!</button>
+                            <button class="proposal-btn bg-white text-[var(--primary-passion)] font-bold text-2xl py-4 px-10 rounded-full shadow-lg magnetic-btn">Claro!</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="text-center py-8 mt-16 text-blue-300/50">
+                <p>Uma demonstração de amor por Presente Eterno. &copy; 2025</p>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- Modals -->
+    <div id="secret-letter-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden items-center justify-center p-4">
+        <div id="secret-letter-content" class="relative max-w-2xl w-full text-gray-800 p-8 md:p-12 rounded-lg">
+             <button id="close-secret-letter-btn" class="absolute top-4 right-4 text-gray-600 hover:text-black text-3xl font-bold">&times;</button>
+             <h2 class="font-cursive text-4xl md:text-5xl text-center mb-6 text-[var(--primary-passion)]">Meu Maior Segredo...</h2>
+             <p class="font-serif-italic text-md md:text-lg leading-relaxed indent-8">
+                ...é que, antes de você, eu achava que a felicidade era um destino a ser alcançado. Hoje, eu sei que a felicidade é um lugar. E esse lugar é qualquer um, desde que eu esteja com você. É na paz do nosso silêncio, na forma como nossas mãos se encontram, na certeza de que, não importa o que aconteça, eu tenho em você meu porto seguro.
+             </p>
+             <p class="font-serif-italic text-md md:text-lg leading-relaxed mt-4 indent-8">
+                Em um mundo de incertezas, você é minha única e constante verdade. A verdade mais bonita da minha alma.
+             </p>
+             <p class="font-cursive text-2xl text-right mt-8 text-[var(--accent-luxury)]">Guardado para sempre em meu coração.</p>
+        </div>
+    </div>
+    <div id="final-message-screen" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center p-4">
+        <button id="close-final-screen" class="absolute top-5 right-8 text-white text-5xl font-light hover:text-pink-300 z-[110]">&times;</button>
+        <div class="text-center">
+            <h1 id="final-text-container" class="final-message-text font-cursive text-white select-none"></h1>
+            <p class="final-promise text-xl md:text-2xl text-[var(--accent-elegance)] mt-8 max-w-3xl">
+                Eu prometo ser seu cúmplice, seu amigo e seu eterno amor. Prometo celebrar suas vitórias, te apoiar nos seus sonhos e ser seu refúgio nas tempestades. Prometo te amar, hoje e em todos os amanhãs que virão.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Element Cache & Setup ---
+        const mainContent = document.getElementById('main-content');
+        const confettiCannon = confetti.create(document.getElementById('confetti-canvas'), { resize: true, useWorker: true });
+
+        // --- Core Functions ---
+        function triggerConfettiCelebration() {
+            const duration = 3 * 1000, animationEnd = Date.now() + duration;
+            const colors = ['#DC143C', '#FF69B4', '#9932CC', '#FFFFFF'];
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100, colors };
+            const interval = setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+                const particleCount = 50 * (timeLeft / duration);
+                confettiCannon(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.4 + 0.1, y: Math.random() - 0.2 } }));
+                confettiCannon(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.4 + 0.7, y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+        
+        function observeSections() {
+            const observer = new IntersectionObserver((e) => e.forEach(i => i.isIntersecting && (i.target.classList.add('visible'), observer.unobserve(i.target))), { threshold: 0.1 });
+            document.querySelectorAll('.reveal-section').forEach(s => observer.observe(s));
+        }
+
+        function startFallingHearts() {
+            const c = document.getElementById('hearts-rain-container');
+            setInterval(() => {
+                const h = document.createElement('div'); h.classList.add('heart'); h.innerHTML = '&#10084;';
+                h.style.left = `${Math.random()*100}vw`; h.style.animationDuration = `${Math.random()*5+7}s`;
+                h.style.fontSize = `${Math.random()*1+1}rem`; h.style.opacity = Math.random()*0.5+0.3;
+                c.appendChild(h); setTimeout(() => h.remove(), 12000);
+            }, 300);
+        }
+
+        function setupStarfield() {
+            const canvas = document.getElementById('starfield'), ctx = canvas.getContext('2d');
+            let stars = [], count = 200, W = window.innerWidth, H = window.innerHeight;
+            canvas.width = W; canvas.height = H;
+            for (let i = 0; i < count; i++) stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.5, s: (Math.random() * 0.5) + 0.2 });
+            function draw() {
+                ctx.clearRect(0, 0, W, H); ctx.fillStyle = 'rgba(234, 234, 234, 0.8)';
+                ctx.beginPath(); stars.forEach(s => { ctx.moveTo(s.x, s.y); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); });
+                ctx.fill(); update();
+            }
+            function update() { stars.forEach(s => { s.y += s.s; if (s.y > H) { s.y = 0; s.x = Math.random() * W; } }); }
+            window.requestAnimationFrame(function loop() { draw(); window.requestAnimationFrame(loop); });
+        }
+        
+        // --- App Initialization ---
+        function init() {
+            setupStarfield();
+            
+            document.getElementById('open-surprise-btn').addEventListener('click', () => {
+                const surpriseCover = document.getElementById('surprise-cover');
+                surpriseCover.style.opacity = '0';
+                setTimeout(() => {
+                    surpriseCover.style.display = 'none'; mainContent.style.opacity = '1';
+                    startFallingHearts(); observeSections();
+                    document.querySelector('#heart-message-display p').classList.add('opacity-100');
+                }, 1000);
+            });
+
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.onmousemove = e => {
+                    const rect = e.target.getBoundingClientRect();
+                    e.target.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    e.target.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                };
+            });
+
+            // Condensed setup calls
+            const setupFuncs = [setupPhotoCarousel, setupTimeCounter, setupAudioPlayer, setupMessageHearts, setupMemoryGame, setupSecretMessage, setupProposal];
+            setupFuncs.forEach(func => func());
+        }
+
+        // --- Component Setup Functions (Condensed for production) ---
+        function setupPhotoCarousel() {
+            const p = ['https://i.postimg.cc/4NJrnT6Z/IMG-0332.jpg','https://i.postimg.cc/WpmB24JX/IMG-0333.jpg','https://i.postimg.cc/4yGjzDj6/IMG-0335.jpg','https://i.postimg.cc/QCqwS6rR/IMG-0336.jpg','https://i.postimg.cc/MTVhf63Z/IMG-0337.jpg','https://i.postimg.cc/1zLkznHY/IMG-0338.jpg','https://i.postimg.cc/wjbKSbsz/IMG-0339.jpg','https://i.postimg.cc/wjB84dMF/IMG-0340.jpg','https://i.postimg.cc/yNgqBXFZ/IMG-0341.jpg','https://i.postimg.cc/56Xr4bFV/IMG-0342.jpg'];
+            document.querySelector('.swiper-wrapper').innerHTML = p.map(u => `<div class="swiper-slide"><img src="${u}" class="w-full h-full object-cover rounded-lg" alt="Foto do casal" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0f172a/ffffff?text=Memória';"></div>`).join('');
+            new Swiper(".mySwiper",{effect:"coverflow",grabCursor:!0,centeredSlides:!0,slidesPerView:"auto",loop:!0,coverflowEffect:{rotate:50,stretch:0,depth:100,modifier:1,slideShadows:!0},pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},autoplay:{delay:3e3,disableOnInteraction:!1}});
+        }
+        function setupTimeCounter() { const s=new Date('2022-01-01T00:00:00'); setInterval(()=>{const d=new Date-s;document.getElementById('days').textContent=Math.floor(d/864e5);document.getElementById('hours').textContent=Math.floor(d/36e5)%24;document.getElementById('minutes').textContent=Math.floor(d/6e4)%60;document.getElementById('seconds').textContent=Math.floor(d/1e3)%60},1e3) }
+        function setupAudioPlayer() { const a=document.getElementById('romantic-audio'),p=document.getElementById('custom-audio-player');p.innerHTML=`<button id="play-pause-btn" class="p-3 bg-[var(--primary-romance)] rounded-full text-white hover:bg-[var(--primary-passion)] transition-all magnetic-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="block"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/></svg></button><div class="flex-grow flex items-center gap-2"><span id="current-time" class="text-sm">0:00</span><input id="seek-bar" type="range" value="0" class="w-full h-2 bg-gray-600 r-lg"><span id="duration" class="text-sm">0:00</span></div>`;const b=p.querySelector('#play-pause-btn'),i=b.children[0],o=b.children[1],s=p.querySelector('#seek-bar'),f=t=>`${Math.floor(t/60)}:${Math.floor(t%60).toString().padStart(2,'0')}`;a.onloadedmetadata=()=>{p.querySelector('#duration').textContent=f(a.duration);s.max=a.duration};b.onclick=()=>{a.paused?(a.play(),i.classList.add('hidden'),o.classList.remove('hidden')):(a.pause(),i.classList.remove('hidden'),o.classList.add('hidden'))};a.ontimeupdate=()=>{s.value=a.currentTime;p.querySelector('#current-time').textContent=f(a.currentTime)};s.oninput=()=>a.currentTime=s.value;a.onended=()=>{i.classList.remove('hidden');o.classList.add('hidden')}; }
+        function setupMessageHearts() { const c=document.getElementById('hearts-container'),d=document.querySelector('#heart-message-display p'),m=["Seu sorriso contagiante.","Sua inteligência afiada.","Seu abraço que é meu lar.","Sua bondade genuína.","Nossas conversas profundas.","Sua força inspiradora.","Como me torna uma pessoa melhor.","Nossos sonhos compartilhados.","Seu carinho nos detalhes.","A paz que você transmite.","A aventura que é estar com você.","Simplesmente por ser você."];c.innerHTML=m.map(s=>`<button class="focus:outline-none relative transition-transform transform hover:scale-125" data-message="${s}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-16 h-16 md:w-20 md:h-20 text-[var(--primary-romance)] hover:text-[var(--primary-passion)] transition-colors"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>`).join('');let a=null;c.querySelectorAll('button').forEach(b=>b.onclick=()=>{d.textContent=b.dataset.message;if(a)a.classList.remove('scale-125');b.classList.add('scale-125');a=b}) }
+        function setupMemoryGame() { const g=document.getElementById('game-board'),m=document.getElementById('game-message'),e=['💖','😍','😘','🥰','💍','💌'],i=`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>`;function create(){g.innerHTML='';m.textContent='';let c=[...e,...e].sort(()=>.5-Math.random()),f=[],d=0;g.innerHTML=c.map(t=>`<div class="memory-card w-full aspect-square cursor-pointer transition-transform duration-500" data-emoji="${t}" style="transform-style:preserve-3d"><div class="absolute w-full h-full flex items-center justify-center bg-[var(--text-secondary)]/80 r-lg text-black" style="backface-visibility:hidden">${i}</div><div class="absolute w-full h-full flex items-center justify-center bg-[var(--primary-romance)] r-lg text-4xl" style="backface-visibility:hidden;transform:rotateY(180deg)">${t}</div></div>`).join('');g.querySelectorAll('.memory-card').forEach(t=>t.onclick=()=>{if(f.length===2||t.classList.contains('is-flipped'))return;t.style.transform='rotateY(180deg)';t.classList.add('is-flipped');f.push(t);if(f.length===2){const[n,o]=f;if(n.dataset.emoji===o.dataset.emoji){d++;f=[];if(d===e.length)setTimeout(()=>{m.textContent="Conexão perfeita!";triggerConfettiCelebration();setTimeout(create,3e3)},500)}else setTimeout(()=>{n.style.transform='';o.style.transform='';n.classList.remove('is-flipped');o.classList.remove('is-flipped');f=[]},1e3)}})}create() }
+        function setupSecretMessage() { const u=document.getElementById('unlock-btn');u.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z"/><circle cx="16.5" cy="7.5" r=".5"/></svg>`;const p=document.getElementById('password-input'),e=document.getElementById('password-error'),s=document.getElementById('secret-letter-modal'),h=()=>{e.textContent='';if(p.value.toLowerCase()==='amor'){s.classList.remove('hidden');s.classList.add('flex')}else{e.textContent='Senha incorreta. Tente a palavra que nos une.'}};u.onclick=h;p.onkeyup=t=>t.key==='Enter'&&h();document.getElementById('close-secret-letter-btn').onclick=()=>{s.classList.add('hidden');s.classList.remove('flex')} }
+        function setupProposal() { const f=document.getElementById('final-message-screen');document.querySelectorAll('.proposal-btn').forEach(b=>b.onclick=()=>{f.classList.remove('hidden');f.classList.add('flex');document.body.style.overflow='hidden';triggerConfettiCelebration();const t="Eu Te Amo",c=document.getElementById('final-text-container');c.innerHTML=t.split('').map((h,i)=>`<span style="--i:${i}">${h===' '?'&nbsp;':h}</span>`).join('')});document.getElementById('close-final-screen').onclick=()=>{f.classList.add('hidden');f.classList.remove('flex');document.body.style.overflow='auto'} }
+        
+        // Start the application
+        init();
+    });
+    </script>
+</body>
+</html>
